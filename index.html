@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sagami page</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+  body {
+    margin:0;
+    padding:0;
+    font-family: 'Fira Code', monospace;
+    background-color: #121212;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  h1 {
+    color: #00ffdd;
+    margin-bottom: 1rem;
+  }
+
+  .terminal {
+    background: #0d0d0d;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    white-space: pre-wrap;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #00ffdd;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { background-color: #00ffdd; }
+    50.01%, 100% { background-color: transparent; }
+  }
+
+  .projects {
+    margin-top: 1.5rem;
+  }
+
+  .projects a {
+    color: #00ffdd;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+</style>
+</head>
+<body>
+  <h1>sagami page</h1>
+  <div class="terminal">
+    $ echo "こんにちは、3aGaM1です"<span class="cursor"></span><br>
+    $ echo "GitHub プロジェクトを公開中"
+  </div>
+
+  <div class="projects">
+    <a href="https://github.com/sagami121/Aviutl2-AudioEnc" target="_blank">AudioEnc</a>
+    <a href="https://github.com/sagami121" target="_blank">GitHub</a>
+  </div>
+</body>
+</html>
