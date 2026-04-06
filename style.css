@@ -180,7 +180,7 @@ h1 {
 
 .info b {
   display: block;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -268,7 +268,7 @@ h1 {
 }
 
 .modal-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 8px;
   padding-right: 40px;
@@ -470,7 +470,7 @@ h1 {
   }
 
   .modal-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .btn {
