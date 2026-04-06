@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3aGaM1 | Portfolio</title>
+  <meta name="description" content="3aGaM1 のポートフォリオサイトです。制作したソフトやプラグインを公開しています。">
+  
+  <!-- OGP -->
+  <meta property="og:title" content="3aGaM1 | Portfolio">
+  <meta property="og:description" content="Developer / 音MAD制作。Audion や AviUtl プラグインなどの開発・公開をしています。">
+  <meta property="og:image" content="https://sagami121.github.io/sagami-page/assets/ogp_preview1.png">
+  <meta property="og:url" content="https://sagami121.github.io/sagami-page/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="3aGaM1 | Portfolio">
+  <meta name="twitter:description" content="Developer / 音MAD制作。Audion や AviUtl プラグインなどの開発・公開をしています。">
+  <meta name="twitter:image" content="https://sagami121.github.io/sagami-page/assets/ogp_preview1.png">
+
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Noto+Sans+JP:wght@300;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="bg-glow" id="glow"></div>
+  <div class="container">
+    <header>
+      <img src="assets/icon.jpg" alt="3aGaM1" class="profile-img">
+      <h1>3aGaM1</h1>
+      <p class="bio">Developer / 音MAD制作<br>ソフトなどを開発しています。</p>
+    </header>
+    <div class="section-title">Projects</div>
+
+    <div class="project-card"
+      onclick="openProjectModal('Audion', '音楽再生プレイヤーです。\n直感的な操作感と美しいUIが特徴です。', 'Audion', ['Audion_{latest}_x64-setup.exe', 'Audion_{latest}_x64_ja-JP.msi'])">
+      <div class="thumb">
+        <span class="alt-text">🎵</span>
+        <img src="assets/Audion.png" alt="" onerror="this.style.display='none'">
+      </div>
+      <div class="info"><b>Audion</b><span>音楽再生プレイヤー</span></div>
+      <div class="stars" id="star-Audion">...</div>
+    </div>
+
+    <div class="project-card"
+      onclick="openProjectModal('Aviutl2-AudioEnc', 'AviUtl ExEdit2で音声を出力するプラグインです。\n複数のフォーマットに対応しています。', 'Aviutl2-AudioEnc', 'AudioEnc_v{latest}.zip')">
+      <div class="thumb">
+        <span class="alt-text">(空)</span>
+        <img src="" alt="" onerror="this.style.display='none'">
+      </div>
+      <div class="info"><b>Aviutl2-AudioEnc</b><span>音声出力プラグイン</span></div>
+      <div class="stars" id="star-Aviutl2-AudioEnc">...</div>
+    </div>
+
+    <div class="project-card"
+      onclick="openProjectModal('Sagami-Youtube-Downloader', 'YouTubeの動画をダウンロードできるツールです。\nURLを貼るだけで簡単に保存が可能です。', 'Sagami-Youtube-Downloader', 'Sagami.Youtube.Downloader_v{latest}_Setup.exe')">
+      <div class="thumb">
+        <span class="alt-text">📥</span>
+        <img src="assets/Sagami Youtube Downloader.ico" alt="" onerror="this.style.display='none'">
+      </div>
+      <div class="info"><b>Sagami-Youtube-Downloader</b><span>Youtubeの動画をダウンロードするソフト</span></div>
+      <div class="stars" id="star-Sagami-Youtube-Downloader">...</div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://x.com/sagami121" target="_blank"><img src="assets/Xicon.png" class="social-icon-btn x-icon"
+          alt="X"></a>
+      <a href="https://github.com/sagami121" target="_blank"><img src="assets/Githubicon.jpg"
+          class="social-icon-btn gh-icon" alt="GitHub"></a>
+      <a href="https://www.youtube.com/channel/UCkey6ZFpywTANzcnIzAyTiA" target="_blank"><img src="assets/youtube.png"
+          class="social-icon-btn" alt="YouTube"></a>
+      <img src="assets/Discordicon.png" class="social-icon-btn" alt="Discord" onclick="copyDiscord()">
+    </div>
+  </div>
+
+  <div id="modal-overlay" onclick="closeModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div id="m-content-wrapper">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+        <div id="m-title" class="modal-title">Project Name</div>
+        <div id="m-desc" class="modal-desc">Description</div>
+        <div class="modal-changelog-title">最新の更新内容:</div>
+        <div id="m-changelog" class="modal-changelog">取得中...</div>
+
+        <div class="btn-group" id="m-btn-group">
+          <button id="m-dl-trigger" class="btn btn-main" onclick="switchToDownloadSelection()">ダウンロード</button>
+          <a id="m-github" href="#" class="btn btn-sub" target="_blank">GitHubで見る</a>
+        </div>
+      </div>
+
+      <div id="dl-selection-area" style="display: none;">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+        <div class="modal-title">ダウンロードを選択</div>
+        <div class="modal-desc" style="margin-bottom: 32px;">ご利用の環境に合わせてファイル形式を選択してください。</div>
+        <div id="m-dl-options" class="btn-group-vertical">
+        </div>
+        <button class="btn btn-link" style="margin-top: 24px; width: 100%; text-align: center;"
+          onclick="backToProjectInfo()">← プロジェクト情報に戻る</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast">Copied Discord ID</div>
+  <script src="main.js?v=1.0.1"></script>
+</body>
+
+</html>
